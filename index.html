@@ -1,0 +1,41 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-1">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<title>Cam</title>
+</head>
+<body style="margin:1% 25%;">
+	<center>
+
+	<span><video id="video" width="640" height="480" autoplay style="display:none;"></video></span><br><br>
+	<input type="text" id="uname" placeholder="Enter Your Name" class="form-control"><br>
+	<input type="button" id="host" value="Create Meeting" class="btn btn-primary">
+	<button onclick="display_video()" style="border-radius: 10%" class="btn btn-danger" id="opencam"> Open cam</button>
+	<input type="button" id="user" value="Join Meeting" class="btn btn-primary"></center>
+	
+<script>
+function display_video(){
+		
+		// Grab elements, create settings, etc.
+	var video = document.getElementById('video');
+	// Get access to the camera!
+	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && video.style.display === "none") {
+		document.getElementsByTagName("BUTTON")[0].style.backgroundColor = "#3C7AB7";
+	    // Not adding `{ audio: true }` since we only want video now
+	    video.style.display = "block";
+	    navigator.mediaDevices.getUserMedia({ video: true },{ audio: true }).then(function(stream) {
+	        //video.src = window.URL.createObjectURL(stream);
+	        video.srcObject = stream;
+	        video.play();
+	    });
+	}
+	else {
+		document.getElementsByTagName("BUTTON")[0].style.backgroundColor = "red";
+    	video.style.display = "none";
+  }
+}
+</script>
+</html>

@@ -1,0 +1,152 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="style.css"/>
+		
+		<title>Admin Panel</title>
+
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="video_span col-lg-10" style="width: 100%">
+					<div class="row" style="height:115.2px;">
+						<div class="col-md-2 s1"></div>
+						<div class="col-md-2 s2"></div>
+						<div class="col-md-2 s3"></div>
+						<div class="col-md-2 s4"></div>
+						<div class="col-md-2 s5"></div>
+						<div class="col-md-2 s26"></div>
+					</div>
+					<div class="row" style="height:115.2px;">
+						<div class="col-md-2 s6"></div>
+						<div class="col-md-2 s7"></div>
+						<div class="col-md-2 s8"></div>
+						<div class="col-md-2 s9"></div>
+						<div class="col-md-2 s10"></div>
+						<div class="col-md-2 s27"></div>
+					</div>
+					<div class="row" style="height:115.2px;">
+						<div class="col-md-2 s11"></div>
+						<div class="col-md-2 s12"></div>
+						<div class="col-md-2 s13"></div>
+						<div class="col-md-2 s14"></div>
+						<div class="col-md-2 s15"></div>
+						<div class="col-md-2 s28"></div>
+					</div>
+					<div class="row" style="height:115.2px;">
+						<div class="col-md-2 s16"></div>
+						<div class="col-md-2 s17"></div>
+						<div class="col-md-2 s18"></div>
+						<div class="col-md-2 s19"></div>
+						<div class="col-md-2 s20"></div>
+						<div class="col-md-2 s29"></div>
+					</div>
+					<div class="row" style="height:115.2px;">
+						<div class="col-md-2 s21"></div>
+						<div class="col-md-2 s22"></div>
+						<div class="col-md-2 s23"></div>
+						<div class="col-md-2 s24"></div>
+						<div class="col-md-2 s25"></div>
+						<div class="col-md-2 s30"></div>
+					</div>
+				</div>
+				<div class="col-lg-2" style="float:right;background-color:#00000030; padding-top:10px;">
+					<button class="btn btn-primary chatbtn">ChatBox</button><br>
+					<div class="chatdiv">
+						<br>
+						<input class="form-control chatbox" placeholder="Type here....">
+					</div>
+					<button onclick="myFunction()" class="btn btn-warning poll">POLL</button>
+					<div id="myDIV">
+						<span id="count"></span> seconds<br>
+						<div class="btn-group" role="group" aria-label="Basic example">
+						  <button type="button" class="btn btn-info" onclick="start()">Start</button>
+						  <button type="button" class="btn btn-info"  id="myBtn">Answer</button>
+						</div>
+						<!-- The Modal -->
+						<div id="myModal" class="modal">
+						  <!-- Modal content -->
+						  <div class="modal-content">
+						    <span class="close">&times;</span>
+						    <form method="post" action="">
+							    <div class="btn-group" role="group" aria-label="Basic example">
+								  <button type="button" class="btn btn-success" value="yes">YES</button>
+								  <button type="button" class="btn btn-success" value="no">NO</button>
+								  <button type="button" class="btn btn-success" value="na">NOT SURE</button>
+								</div>
+							</form>
+						  </div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>  
+
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+        $("#myDIV").hide();
+        $(".chatdiv").hide();
+        $(".poll").click(function(){
+            $("#myDIV").slideToggle();
+        });
+        $(".chatbtn").click(function(){
+            $(".chatdiv").slideToggle();
+        });
+    });
+	function startTimer(){
+	  var counter =prompt("Please Enter Time...", 5);
+	  setInterval(function() {
+	    counter--;
+	    if (counter >= 0) {
+	      span = document.getElementById("count");
+	      span.innerHTML = counter;
+	    }
+	    if (counter === 0) {
+	        alert('sorry, out of time');
+	        clearInterval(counter);
+	    }
+	  }, 1000);
+	}
+	function start()
+	{
+	    document.getElementById("count").style="color:green;";
+	    startTimer();
+	};
+
+	//Answering the poll
+	// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
+	</script>
+
+</html>
