@@ -110,8 +110,12 @@
 		$(document).ready(function(){
         $(".chatdiv").hide();
         $("#info").hide();
+        $("#myDIV").hide();
         $(".infobtn").click(function(){
             $("#info").slideToggle();
+        });
+        $(".poll").click(function(){
+            $("#myDIV").slideToggle();
         });
         $(".chatbtn").click(function(){
             $(".chatdiv").slideToggle();
