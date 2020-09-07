@@ -66,31 +66,27 @@
 						<div class="col-md-2 s30">User 30</div>
 					</div>
 				</div>
-				<div class="col-lg-2" style="float:right;background-color:#00000030; border-radius:5px;">
-					<center><h3>ChatBox</h3></center>
+				<div class="col-lg-2" style="float:right;background-color:#00000030; padding-top:10px;">
+					<button class="btn btn-primary chatbtn">ChatBox</button><br>
+					<div class="chatdiv">
 						<br>
 						<input class="form-control chatbox" placeholder="Type here....">
+					</div>
+					
 				</div>
 				</div>
 				<div class="row">
-					<div class="col-md-8"style="margin-top:1%;">
+					<div class="col-md-8" style="margin-top:1%;">
 						<center><img src="images/call1.png" style="width:50px;" />
 						<img src="images/video1.png" style="width:50px; margin-left:30px" />
-					<img src="images/mic1.png" style="width:50px;margin-left:30px" /></center>
+						<img src="images/mic1.png" style="width:50px;margin-left:30px" /></center>
 					</div>
 					<div class="col-md-4">
-
-						<div id="myDIV">
-							<span id="count"></span> seconds<br>
-							<!--<div class="btn-group" role="group" aria-label="Basic example">
-							  <button type="button" class="btn btn-info" onclick="start()">Start Poll</button>
-							  <button type="button" class="btn btn-info"  id="myBtn">Answer</button>
-							</div>
-							The Modal
+						<!-- The Modal -->
 							<div id="myModal" class="modal">
-							 Modal content
+							  <!-- Modal content -->
 							  <div class="modal-content">
-							    <span class="close">&times;</span>
+							    <center><span class="close">&times;</span></center>
 							    <form method="post" action="">
 								    <div class="btn-group" role="group" aria-label="Basic example">
 									  <button type="button" class="btn btn-success" value="yes">YES</button>
@@ -98,9 +94,8 @@
 									</div>
 								</form>
 							  </div>
-							</div>-->
-						</div>
-						<button onclick="start()"class="btn btn-warning poll">POLL</button>
+							</div>
+						<button class="btn btn-warning" id="myBtn">Answer Poll</button>
 					</div>
 				</div>
 			</div>  
@@ -108,10 +103,14 @@
 	</body>
 	<script type="text/javascript">
 		$(document).ready(function(){
+        $("#myDIV").hide();
         $(".chatdiv").hide();
         $("#info").hide();
         $(".infobtn").click(function(){
             $("#info").slideToggle();
+        });
+        $(".poll").click(function(){
+            $("#myDIV").slideToggle();
         });
         $(".chatbtn").click(function(){
             $(".chatdiv").slideToggle();
